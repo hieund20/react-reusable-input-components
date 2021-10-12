@@ -1,0 +1,224 @@
+@font-face {
+    font-family: "Noto Sans";
+    src: local("Noto_Sans"), url(./fonts/Noto_Sans/NotoSans-Regular.ttf) format("truetype");
+}
+
+$defaultInputColor: #828282;
+$hoverInputColor: #333333;
+$focusInputColor: #2962ff;
+$errorInputColor: #d32f2f;
+$disabledInputColor: #f2f2f2;
+$disabledBorderInputColor: #e0e0e0;
+
+$defaultLabelColor: #333333;
+$focusLabelColor: #2962ff;
+$errorLabelColor: #d32f2f;
+
+$defaultHelperTextColor: #828282;
+$errorHelperTextColor: #d32f2f;
+
+/*Input default*/
+/*Input helperText*/
+.input {
+    font-family: Noto Sans, serif;
+    &-label {
+        display: inline-block;
+        margin-bottom: 4px;
+
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 17px;
+        color: $defaultLabelColor;
+    }
+    &-text {
+        display: block;
+        width: 200px;
+        height: 56px;
+        border: 1px solid $defaultInputColor;
+        border-radius: 8px;
+        box-sizing: border-box;
+        padding-left: 12px;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: $defaultInputColor;
+        &:hover {
+            border: 1px solid $hoverInputColor;
+        }
+    }
+    &:focus-within {
+        label {
+            color: $focusLabelColor;
+        }
+        input {
+            outline: none;
+            border: 1px solid $focusInputColor;
+        }
+    }
+    &-helperText {
+        margin-top: 4px;
+
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 14px;
+
+        color: $defaultHelperTextColor;
+    }
+    .input-text[value] {
+        color: $hoverInputColor;
+    }
+}
+
+/*Input error*/
+.input.input--error {
+    margin-top: 30px;
+    margin-bottom: -20px;
+    .input {
+        &-text {
+            border: 1px solid $errorInputColor;
+            &:hover {
+                border: 1px solid $hoverInputColor;
+            }
+            &:hover ~ .input-label {
+                color: $hoverInputColor;
+            }
+            &:focus {
+                pointer-events: none;
+            }
+        }
+        &-label {
+            color: $errorLabelColor;
+            position: relative;
+            top: -81px;
+        }
+        &-helperText {
+            display: block;
+            width: 100%;
+            color: $errorHelperTextColor;
+            position: relative;
+            top: -23px;
+        }
+    }
+}
+
+/*Input disabled*/
+.input {
+    &-text:disabled {
+        cursor: default;
+        background: $disabledInputColor;
+        border: 1px solid $disabledBorderInputColor;
+        pointer-events: none;
+    }
+}
+
+/*Input value*/
+.input.input--value {
+    .input {
+        &-text[value] {
+            color: $defaultLabelColor;
+        }
+    }
+}
+
+/*Input size*/
+.input.input--sm {
+    .input {
+        &-text {
+            width: 200px;
+            height: 40px;
+        }
+    }
+}
+.input.input--md {
+    .input {
+        &-text {
+            width: 200px;
+            height: 56px;
+        }
+    }
+}
+
+/*Input fullWidth*/
+.input.input--fullWidth {
+    .input {
+        &-text {
+            width: 100%;
+        }
+    }
+}
+
+/*Input icon*/
+.input.input--startIcon {
+    .input {
+        &-text {
+            position: relative;
+            padding-left: 45px;
+        }
+    }
+    .material-icons {
+        position: relative;
+        top: -40px;
+        left: 10px;
+        bottom: 20px;
+        color: $defaultInputColor;
+    }
+    &:focus-within {
+        .material-icons {
+            color: $focusInputColor;
+        }
+    }
+}
+
+.input.input--endIcon {
+    .input {
+        &-text {
+            position: relative;
+        }
+    }
+    .material-icons {
+        position: relative;
+        top: -40px;
+        left: 167px;
+        bottom: 20px;
+        color: $defaultInputColor;
+    }
+    &:focus-within {
+        .material-icons {
+            color: $focusInputColor;
+        }
+    }
+}
+
+/*Input multiline*/
+.input.input--multiline {
+    .input {
+        &-multiline {
+            font-family: Noto Sans;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            color: $hoverInputColor;
+
+            display: block;
+            width: 200px;
+            border-radius: 8px;
+            border: 1px solid $defaultInputColor;
+            box-sizing: border-box;
+            padding-left: 12px;
+            padding-top: 18px;
+            resize: none;
+            &:hover {
+                border: 1px solid $hoverInputColor;
+            }
+            &:focus {
+                outline: none;
+                border: 1px solid $focusInputColor;
+            }
+        }
+    }
+}
